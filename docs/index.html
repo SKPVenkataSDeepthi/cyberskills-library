@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CyberSkills Library</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+  :root{
+    --bg:#f3f5f7; --panel:#fff; --ink:#0f1720; --muted:#5a6b7b; --line:#dde3e9;
+    --accent:#0c8a86; --accent-soft:#d3ecea; --track:#e7edf1; --hole:#fff;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0b1016; --panel:#121a22; --ink:#e7eef4; --muted:#8ea0b0; --line:#243240;
+    --accent:#2dd4bf; --accent-soft:#113b39; --track:#1c2832; --hole:#121a22; color-scheme:dark;
+  }}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px 48px}
+  header.bar{background:var(--panel);border-bottom:1px solid var(--line);margin:0 -16px 24px;padding:14px 16px}
+  .barin{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{width:30px;height:30px;border-radius:7px;background:var(--accent);display:grid;place-items:center;color:#042b2a;font-family:var(--mono);font-weight:700}
+  .brand{font-weight:600;font-size:16px} .brand small{display:block;color:var(--muted);font-weight:400;font-size:11px;font-family:var(--mono)}
+  .spacer{flex:1}
+  .pill{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-soft);padding:4px 9px;border-radius:999px}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin:0 0 14px;font-weight:600;font-family:var(--mono)}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+  .tile{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;overflow:hidden}
+  .tile::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--tc,var(--accent))}
+  .tile .n{font-size:30px;font-weight:700;font-family:var(--mono);line-height:1;font-variant-numeric:tabular-nums}
+  .tile .l{font-size:12px;color:var(--muted);margin-top:7px}
+  .tile .d{font-size:11px;color:var(--tc,var(--accent));margin-top:4px;font-family:var(--mono)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .donut-wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .donut{position:relative;width:168px;height:168px;border-radius:50%;flex:none}
+  .donut::after{content:"";position:absolute;inset:26px;border-radius:50%;background:var(--hole)}
+  .donut .center{position:absolute;inset:0;display:grid;place-content:center;text-align:center;z-index:1}
+  .donut .center b{font-family:var(--mono);font-size:30px;font-weight:700;display:block;line-height:1;font-variant-numeric:tabular-nums}
+  .donut .center span{font-size:10px;color:var(--muted);font-family:var(--mono);letter-spacing:.5px}
+  .legend{flex:1;min-width:170px;display:flex;flex-direction:column;gap:9px}
+  .leg{display:flex;align-items:center;gap:9px;font-size:13px;min-width:0}
+  .leg .sw{width:11px;height:11px;border-radius:3px;flex:none}
+  .leg .ln{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .leg .lv{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px;min-width:0}
+  .row .name{flex:none;width:120px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar{flex:1;height:15px;background:var(--track);border-radius:8px;overflow:hidden;min-width:0}
+  .bar span{display:block;height:100%;border-radius:8px;width:0;transition:width .9s cubic-bezier(.22,1,.36,1)}
+  .row .v{flex:none;width:42px;text-align:right;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .fwnote{margin-top:10px;font-size:11px;color:var(--muted);line-height:1.6} .fwnote b{color:var(--ink);font-weight:600}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  input[type=search]{flex:1;min-width:180px;background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:9px;font-family:var(--sans);font-size:14px}
+  input[type=search]:focus{outline:2px solid var(--accent);outline-offset:1px}
+  select{background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:9px;font-size:14px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:600px}
+  th,td{text-align:left;padding:11px 14px;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .skname{display:flex;align-items:flex-start;gap:8px} .dot{width:9px;height:9px;border-radius:50%;flex:none;margin-top:5px}
+  td .sk{font-family:var(--mono);font-size:12px;color:var(--accent)}
+  .dchip{display:inline-block;font-size:11px;font-family:var(--mono);padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .chip{display:inline-block;font-size:11px;font-family:var(--mono);padding:2px 7px;border-radius:5px;background:var(--track);color:var(--muted);margin:1px 3px 1px 0}
+  .count{color:var(--muted);font-size:12px;font-family:var(--mono);margin-top:10px}
+  .msg{padding:40px 16px;color:var(--muted);text-align:center;font-family:var(--mono);font-size:13px}
+  footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+  @media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+  @media (max-width:720px){.tiles{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.row .name{width:104px}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="barin">
+  <div class="logo">CS</div>
+  <div class="brand">CyberSkills Library<small>agent skills · index.json</small></div>
+  <div class="spacer"></div><div class="pill" id="asof">loading…</div>
+</div></header>
+
+<div class="wrap">
+  <div id="app" hidden>
+    <section class="tiles" id="tiles"></section>
+    <div class="grid2">
+      <div class="panel"><h2>Skills by domain</h2>
+        <div class="donut-wrap">
+          <div class="donut" id="donut"><div class="center"><b id="donutTotal">0</b><span>SKILLS</span></div></div>
+          <div class="legend" id="legend"></div>
+        </div>
+      </div>
+      <div class="panel"><h2>Framework coverage</h2><div id="frameworks"></div><div class="fwnote" id="fwnote"></div></div>
+    </div>
+    <div class="panel">
+      <h2>Skill catalog</h2>
+      <div class="controls">
+        <input type="search" id="q" placeholder="Search skills, tags, descriptions…" aria-label="Search skills">
+        <select id="dom" aria-label="Filter by domain"></select>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Skill</th><th>Domain</th><th>Description</th><th>Tags</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+      <div class="count" id="count"></div>
+    </div>
+  </div>
+  <div id="msg" class="msg">Loading index.json…</div>
+  <footer>Reads <code>index.json</code> generated by <code>build_index.py</code>. Re-run that script and refresh after adding skills.</footer>
+</div>
+
+<script>
+const PALETTE=["#2dd4bf","#a78bfa","#fbbf24","#fb7185","#38bdf8","#34d399","#fb923c","#f472b6","#818cf8","#a3e635","#f87171","#22d3ee"];
+const FW_FULL={"ATTACK":"MITRE ATT&CK","NIST CSF":"NIST CSF 2.0","D3FEND":"MITRE D3FEND","ATLAS":"MITRE ATLAS","NIST AI RMF":"NIST AI RMF","F3":"MITRE F3"};
+const $=s=>document.querySelector(s);
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let SKILLS=[];
+
+fetch('index.json')
+  .then(r=>{ if(!r.ok) throw 0; return r.json(); })
+  .then(data=>{
+    SKILLS=data.skills||[];
+    if(!SKILLS.length){ $("#msg").textContent="index.json has no skills yet. Add a SKILL.md and re-run build_index.py."; return; }
+    $("#msg").hidden=true; $("#app").hidden=false; renderAll();
+  })
+  .catch(()=>{ $("#msg").innerHTML="Could not load <b>index.json</b>. Run <code>python tools/build_index.py</code>, then serve this folder with <code>python -m http.server 8000</code>."; });
+
+function countUp(el,to){
+  const suffix=String(to).includes("%")?"%":"";
+  const target=parseInt(to,10)||0;
+  if(reduce||target===0){el.textContent=to;return;}
+  const t0=performance.now();
+  (function tick(t){
+    const p=Math.min(1,(t-t0)/750), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e)+suffix;
+    if(p<1)requestAnimationFrame(tick); else el.textContent=to;
+  })(t0);
+}
+
+function renderAll(){
+  const domains=[...new Set(SKILLS.map(s=>s.domain))].sort();
+  const color={}; domains.forEach((d,i)=>color[d]=PALETTE[i%PALETTE.length]);
+  const domCount={}; SKILLS.forEach(s=>domCount[s.domain]=(domCount[s.domain]||0)+1);
+  const fwSet=new Set(); SKILLS.forEach(s=>(s.frameworks||[]).forEach(f=>fwSet.add(f)));
+  const attackPct=Math.round(SKILLS.filter(s=>(s.frameworks||[]).includes("ATTACK")).length/SKILLS.length*100);
+
+  const tiles=[
+    {n:SKILLS.length,l:"Total skills",d:"in index.json",c:PALETTE[0]},
+    {n:domains.length,l:"Security domains",d:"covered",c:PALETTE[1]},
+    {n:fwSet.size,l:"Frameworks mapped",d:[...fwSet].map(f=>FW_FULL[f]||f).slice(0,3).join(" · ")||"—",c:PALETTE[2]},
+    {n:attackPct+"%",l:"ATT&CK-mapped",d:"of all skills",c:PALETTE[3]}
+  ];
+  $("#tiles").innerHTML=tiles.map(t=>`<div class="tile" style="--tc:${t.c}"><div class="n" data-to="${t.n}">0</div><div class="l">${t.l}</div><div class="d">${t.d}</div></div>`).join("");
+  document.querySelectorAll(".tile .n").forEach(el=>countUp(el,el.dataset.to));
+
+  const entries=Object.entries(domCount).sort((a,b)=>b[1]-a[1]);
+  let acc=0,stops=[];
+  entries.forEach(([d,v])=>{const pct=v/SKILLS.length*100;stops.push(`${color[d]} ${acc}% ${acc+pct}%`);acc+=pct;});
+  $("#donut").style.background=`conic-gradient(${stops.join(",")})`;
+  countUp($("#donutTotal"),SKILLS.length);
+  $("#legend").innerHTML=entries.map(([d,v])=>
+    `<div class="leg"><span class="sw" style="background:${color[d]}"></span><span class="ln" title="${d}">${d}</span><span class="lv">${v} · ${Math.round(v/SKILLS.length*100)}%</span></div>`).join("");
+
+  const fwPct={}; [...fwSet].forEach(f=>fwPct[f]=Math.round(SKILLS.filter(s=>(s.frameworks||[]).includes(f)).length/SKILLS.length*100));
+  const fwEntries=Object.entries(fwPct).sort((a,b)=>b[1]-a[1]);
+  $("#frameworks").innerHTML=fwEntries.map(([k,v],i)=>
+    `<div class="row"><div class="name" title="${FW_FULL[k]||k}">${k}</div><div class="bar"><span data-w="${v}" style="background:${PALETTE[i%PALETTE.length]}"></span></div><div class="v">${v}%</div></div>`).join("");
+  requestAnimationFrame(()=>document.querySelectorAll("#frameworks .bar span").forEach(s=>s.style.width=s.dataset.w+"%"));
+  $("#fwnote").innerHTML= fwEntries.length ? "Legend: "+fwEntries.map(([k])=>`<b>${k}</b> = ${FW_FULL[k]||k}`).join(" · ") : "";
+
+  const sel=$("#dom");
+  sel.innerHTML=`<option value="">All domains</option>`+domains.map(d=>`<option>${d}</option>`).join("");
+  function render(){
+    const q=$("#q").value.toLowerCase(), d=sel.value;
+    const list=SKILLS.filter(s=>{
+      const hay=(s.name+" "+s.description+" "+(s.tags||[]).join(" ")).toLowerCase();
+      return (!d||s.domain===d)&&(!q||hay.includes(q));
+    });
+    $("#rows").innerHTML=list.map(s=>`<tr>
+      <td><div class="skname"><span class="dot" style="background:${color[s.domain]}"></span><span class="sk">${s.name}</span></div></td>
+      <td><span class="dchip" style="color:${color[s.domain]};background:${color[s.domain]}22">${s.domain}</span></td>
+      <td>${s.description||""}</td>
+      <td>${(s.tags||[]).map(t=>`<span class="chip">${t}</span>`).join("")}</td></tr>`).join("")
+      ||`<tr><td colspan="4" style="color:var(--muted)">No skills match.</td></tr>`;
+    $("#count").textContent=`Showing ${list.length} of ${SKILLS.length} skills`;
+  }
+  $("#q").addEventListener("input",render); sel.addEventListener("change",render); render();
+  $("#asof").textContent=SKILLS.length+" skills";
+}
+</script>
+</body>
+</html>

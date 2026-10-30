@@ -1,0 +1,268 @@
+{
+  "count": 19,
+  "skills": [
+    {
+      "name": "adding-security-scans-to-a-ci-pipeline",
+      "domain": "DevSecOps",
+      "description": "Add automated SAST, dependency and secret scans to a CI/CD pipeline.",
+      "tags": [
+        "cicd",
+        "sast",
+        "secrets"
+      ],
+      "frameworks": [
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "analyzing-a-suspicious-executable",
+      "domain": "Malware Analysis",
+      "description": "Static and dynamic triage of an unknown Windows binary in a sandbox.",
+      "tags": [
+        "malware",
+        "sandbox",
+        "static"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "auditing-a-wifi-network",
+      "domain": "Wireless Security",
+      "description": "Assess a wireless network's encryption, segmentation and rogue APs.",
+      "tags": [
+        "wifi",
+        "wpa",
+        "rogue-ap"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "building-a-stix-threat-feed",
+      "domain": "Threat Intelligence",
+      "description": "Model and share indicators as STIX 2.1 objects over TAXII.",
+      "tags": [
+        "stix",
+        "taxii",
+        "cti"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "continuous-llm-red-teaming-with-promptfoo",
+      "domain": "Red Teaming",
+      "description": "Run repeatable automated red-team scans against an LLM app with promptfoo.",
+      "tags": [
+        "llm",
+        "promptfoo",
+        "redteam"
+      ],
+      "frameworks": [
+        "ATLAS",
+        "NIST AI RMF"
+      ]
+    },
+    {
+      "name": "hardening-an-aws-account",
+      "domain": "Cloud Security",
+      "description": "Baseline IAM, logging and network controls for a new AWS account.",
+      "tags": [
+        "aws",
+        "iam",
+        "hardening"
+      ],
+      "frameworks": [
+        "NIST CSF",
+        "D3FEND"
+      ]
+    },
+    {
+      "name": "hunting-for-lateral-movement",
+      "domain": "Threat Hunting",
+      "description": "Hypothesis-driven hunt for lateral movement across Windows hosts.",
+      "tags": [
+        "hunt",
+        "lateral-movement",
+        "windows"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "investigating-a-phishing-email",
+      "domain": "SOC Operations",
+      "description": "Triage a reported phishing email and contain its impact.",
+      "tags": [
+        "phishing",
+        "email",
+        "triage"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "performing-memory-forensics-with-volatility3",
+      "domain": "Digital Forensics",
+      "description": "Analyze a RAM dump for hidden processes, network connections and injected code.",
+      "tags": [
+        "volatility3",
+        "memory",
+        "dfir"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF",
+        "D3FEND"
+      ]
+    },
+    {
+      "name": "prioritizing-vulnerabilities-for-patching",
+      "domain": "Vulnerability Management",
+      "description": "Rank scanner findings by real risk so patching effort goes where it matters.",
+      "tags": [
+        "vuln-mgmt",
+        "cvss",
+        "patching"
+      ],
+      "frameworks": [
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "profiling-a-target-with-osint",
+      "domain": "Threat Intelligence",
+      "description": "Build an authorized open-source footprint of an organization.",
+      "tags": [
+        "osint",
+        "recon",
+        "footprint"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "resetting-credentials-after-a-breach",
+      "domain": "Identity & Access",
+      "description": "Safely rotate accounts, tokens and sessions after a confirmed compromise.",
+      "tags": [
+        "iam",
+        "credentials",
+        "breach"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "rotating-secrets-and-keys",
+      "domain": "Data Protection",
+      "description": "Plan and execute rotation of API keys, certificates and secrets.",
+      "tags": [
+        "secrets",
+        "rotation",
+        "keys"
+      ],
+      "frameworks": [
+        "NIST CSF",
+        "D3FEND"
+      ]
+    },
+    {
+      "name": "running-a-purple-team-exercise",
+      "domain": "Purple Team",
+      "description": "Run attackers and defenders together to improve detections in real time.",
+      "tags": [
+        "purple-team",
+        "detection",
+        "attack-sim"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "running-a-tabletop-incident-exercise",
+      "domain": "Incident Response",
+      "description": "Facilitate a discussion-based incident drill to test the response plan.",
+      "tags": [
+        "tabletop",
+        "ir",
+        "exercise"
+      ],
+      "frameworks": [
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "scanning-container-images-for-vulns",
+      "domain": "Container Security",
+      "description": "Scan Docker/OCI images for known vulnerabilities before deployment.",
+      "tags": [
+        "docker",
+        "containers",
+        "cve"
+      ],
+      "frameworks": [
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "segmenting-a-flat-network",
+      "domain": "Network Security",
+      "description": "Plan and validate VLAN segmentation to limit blast radius.",
+      "tags": [
+        "network",
+        "vlan",
+        "segmentation"
+      ],
+      "frameworks": [
+        "NIST CSF",
+        "D3FEND"
+      ]
+    },
+    {
+      "name": "testing-for-sql-injection",
+      "domain": "Web App Security",
+      "description": "Safely identify and confirm SQL injection in a web application.",
+      "tags": [
+        "owasp",
+        "sqli",
+        "webapp"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    },
+    {
+      "name": "triaging-alerts-in-the-soc",
+      "domain": "SOC Operations",
+      "description": "Prioritize and escalate security alerts using a repeatable severity workflow.",
+      "tags": [
+        "siem",
+        "triage",
+        "escalation"
+      ],
+      "frameworks": [
+        "ATTACK",
+        "NIST CSF"
+      ]
+    }
+  ]
+}
